@@ -1,6 +1,6 @@
 {
   "name": "image-reveal-spinner",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Angular 21 standalone image reveal spinner usable in Angular apps and as a Web Component.",
   "author": "Nawaz",
   "license": "MIT",
@@ -14,7 +14,7 @@
       "types": "./dist/app-image-reveal/types/app-image-reveal.d.ts"
     },
     "./elements": {
-      "import": "./dist/app-image-reveal/src/main.js"
+      "import": "./dist/app-image-reveal/elements/main.js"
     }
   },
   "files": [
@@ -22,19 +22,21 @@
     "README.md"
   ],
   "scripts": {
-    "build": "ng build app-image-reveal --configuration production",
+    "build:lib": "ng build app-image-reveal --configuration production",
+    "build:elements": "ng build app-image-reveal-elements --configuration production",
+    "build": "npm run build:lib && npm run build:elements",
     "release:patch": "npm version patch && npm run build && npm publish --access public"
   },
   "peerDependencies": {
-    "@angular/core": ">=16.0.0",
-    "@angular/common": ">=16.0.0"
+    "@angular/common": ">=16.0.0",
+    "@angular/core": ">=16.0.0"
   },
   "private": false,
   "packageManager": "npm@10.9.4",
   "dependencies": {
-    "@angular/common": "^21.2.0",
+    "@angular/common": ">=16.0.0",
     "@angular/compiler": "^21.2.0",
-    "@angular/core": "^21.2.0",
+    "@angular/core": ">=16.0.0",
     "@angular/elements": "^21.2.6",
     "@angular/forms": "^21.2.0",
     "@angular/platform-browser": "^21.2.0",
@@ -43,6 +45,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^21.2.4",
     "@angular/build": "^21.2.3",
     "@angular/cli": "^21.2.3",
     "@angular/compiler-cli": "^21.2.0",

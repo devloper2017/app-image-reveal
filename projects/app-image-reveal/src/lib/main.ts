@@ -3,7 +3,7 @@ import { createCustomElement } from '@angular/elements';
 import { AppImageReveal } from './app-image-reveal';
 import { Injector } from '@angular/core';
 
-bootstrapApplication(AppImageReveal).then(appRef => {
+bootstrapApplication(AppImageReveal).then((appRef:any) => {
   const injector: Injector = appRef.injector;
   const el = createCustomElement(AppImageReveal, { injector });
   if (!customElements.get('app-image-reveal')) {

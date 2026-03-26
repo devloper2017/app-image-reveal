@@ -31,6 +31,35 @@
           }
         }
       }
+    },
+    "app-image-reveal-elements": {
+      "projectType": "application",
+      "root": "projects/app-image-reveal",
+      "sourceRoot": "projects/app-image-reveal/src/lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/app-image-reveal/elements",
+            "browser": "projects/app-image-reveal/src/lib/main.ts",
+            "index": "projects/app-image-reveal/src/lib/index.html",
+            "tsConfig": "projects/app-image-reveal/tsconfig.app.json"
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "sourceMap": false
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
     }
   }
 }
