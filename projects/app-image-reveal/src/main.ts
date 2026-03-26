@@ -1,5 +1,5 @@
 import { createCustomElement } from '@angular/elements';
-import { AppImageReveal } from './app-image-reveal';
+import { AppImageReveal } from './lib/app-image-reveal';
 import { createApplication } from '@angular/platform-browser';
 
 (async () => {

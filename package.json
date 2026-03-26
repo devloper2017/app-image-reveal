@@ -31,7 +31,7 @@
     "@angular/common": ">=16.0.0",
     "@angular/core": ">=16.0.0"
   },
-  "private": false,
+  "private": true,
   "packageManager": "npm@10.9.4",
   "dependencies": {
     "@angular/common": ">=16.0.0",
