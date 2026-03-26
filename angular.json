@@ -6,5 +6,31 @@
   },
   "newProjectRoot": "projects",
   "projects": {
+    "app-image-reveal": {
+      "projectType": "library",
+      "root": "projects/app-image-reveal",
+      "sourceRoot": "projects/app-image-reveal/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/app-image-reveal/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/app-image-reveal/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/app-image-reveal/tsconfig.spec.json"
+          }
+        }
+      }
+    }
   }
 }

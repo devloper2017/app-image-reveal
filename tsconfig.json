@@ -3,6 +3,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "app-image-reveal": ["./dist/app-image-reveal"]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -21,5 +24,13 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/app-image-reveal/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/app-image-reveal/tsconfig.spec.json"
+    }
+  ]
 }

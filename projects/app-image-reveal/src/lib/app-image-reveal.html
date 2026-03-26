@@ -1,0 +1,10 @@
+<div class="image-wrapper">
+  <img [src]="imageUrl"  alt="loading image" />
+  <div class="overlay" [style.background]="fillColor" [style.clipPath]="clipPath">
+    <div class="scan-line" [style.top]="progress+'%'"></div>
+    <span *ngIf="showProgress" class="progress-text" [style.fontSize]="progressSize" [style.color]="progressColor"
+      [style.top]="(progress + 1) + '%'" [class.fade-out]="fadeOut">
+      {{progress | number:'1.0-0'}}%
+    </span>
+  </div>
+</div>
