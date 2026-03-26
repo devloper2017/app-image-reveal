@@ -1,14 +1,14 @@
-import { bootstrapApplication } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
 import { AppImageReveal } from './app-image-reveal';
-import { Injector } from '@angular/core';
+import { createApplication } from '@angular/platform-browser';
 
-bootstrapApplication(AppImageReveal).then((appRef:any) => {
-  const injector: Injector = appRef.injector;
+(async () => {
+  const app = await createApplication();
+  const injector = app.injector;
+
   const el = createCustomElement(AppImageReveal, { injector });
+
   if (!customElements.get('app-image-reveal')) {
     customElements.define('app-image-reveal', el);
-  } else {
-    customElements.define('app-image-reveal', el);
   }
-});
+})();
