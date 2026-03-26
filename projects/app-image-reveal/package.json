@@ -1,40 +1,28 @@
 {
-  "name": "@nawazaideveloperr/image-reveal-spinner-workspace",
-  "version": "0.0.8",
-  "private": true,
-  "description": "Workspace for building image reveal spinner library and web component",
-
-  "scripts": {
-    "build:lib": "ng build app-image-reveal --configuration production",
-    "build:elements": "ng build app-image-reveal-elements --configuration production",
-    "build": "npm run build:lib && npm run build:elements",
-    "publish:lib": "npm publish --access public --prefix dist/app-image-reveal",
-    "release:patch": "npm version patch && npm run build && npm run publish:lib"
+  "name": "@nawazaideveloperr/image-reveal-spinner",
+  "version": "0.0.9",
+  "description": "Angular standalone image reveal spinner usable in Angular apps and as a Web Component",
+  "license": "MIT",
+  "type": "module",
+  "main": "fesm2022/app-image-reveal.js",
+  "module": "fesm2022/app-image-reveal.mjs",
+  "types": "types/app-image-reveal.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/app-image-reveal.d.ts",
+      "import": "./fesm2022/app-image-reveal.mjs",
+      "require": "./fesm2022/app-image-reveal.js"
+    },
+    "./elements": {
+      "default": "./elements/main.js"
+    }
   },
-
-  "dependencies": {
+  "peerDependencies": {
     "@angular/common": ">=16.0.0",
-    "@angular/compiler": "^21.2.0",
-    "@angular/core": ">=16.0.0",
-    "@angular/elements": "^21.2.6",
-    "@angular/forms": "^21.2.0",
-    "@angular/platform-browser": "^21.2.0",
-    "@angular/router": "^21.2.0",
-    "rxjs": "~7.8.0",
+    "@angular/core": ">=16.0.0"
+  },
+  "dependencies": {
     "tslib": "^2.3.0"
   },
-
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^21.2.4",
-    "@angular/build": "^21.2.3",
-    "@angular/cli": "^21.2.3",
-    "@angular/compiler-cli": "^21.2.0",
-    "ng-packagr": "^21.2.0",
-    "typescript": "~5.9.2",
-    "prettier": "^3.8.1",
-    "vitest": "^4.0.8",
-    "jsdom": "^28.0.0"
-  },
-
-  "packageManager": "npm@10.9.4"
+  "sideEffects": false
 }
