@@ -6,6 +6,7 @@
 /out-tsc
 /bazel-out
 /sync-version.js
+/fix-package.js
 
 # Node
 /node_modules

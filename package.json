@@ -1,6 +1,6 @@
 {
   "name": "@nawazaideveloperr/image-reveal-spinner-workspace",
-  "version": "0.0.12",
+  "version": "0.1.2",
   "private": true,
   "description": "Workspace for building image reveal spinner library and web component",
   "scripts": {
@@ -8,7 +8,8 @@
     "build:elements": "ng build app-image-reveal-elements --configuration production",
     "build": "npm run build:lib && npm run build:elements",
     "sync:version": "node sync-version.js",
-    "release:patch": "npm version patch && npm run sync:version && npm run build"
+    "fix:pkg": "node fix-package.js",
+    "release:patch": "npm run sync:version && npm run build && npm run fix:pkg"
   },
   "dependencies": {
     "@angular/common": ">=16.0.0",

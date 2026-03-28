@@ -1,6 +1,6 @@
 {
   "name": "@nawazaideveloperr/image-reveal-spinner",
-  "version": "0.0.11",
+  "version": "0.1.2",
   "description": "Angular standalone image reveal spinner usable in Angular apps and as a Web Component",
   "license": "MIT",
   "type": "module",

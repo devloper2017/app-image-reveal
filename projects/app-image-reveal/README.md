@@ -1,64 +1,160 @@
-# AppImageReveal
+# 📦 Image Reveal Spinner
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+A lightweight Angular-based image reveal spinner that works as a **Web Component** and supports Angular.
+<!-- , React, Vue, and plain HTML. -->
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## ✨ Features
 
-```bash
-ng generate component component-name
-```
+- Smooth image reveal animation  
+- Configurable progress animation  
+- Lightweight and optimized  
+- Works with Angular Standalone Components  
+<!-- - Framework-agnostic (Web Component support)   -->
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the library, run:
+## 📥 Installation
 
 ```bash
-ng build app-image-reveal
+npm install @nawazaideveloperr/image-reveal-spinner
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+---
 
-### Publishing the Library
+## 🚀 Usage
 
-Once the project is built, you can publish your library by following these steps:
+### Angular 16+ (Standalone Component)
 
-1. Navigate to the `dist` directory:
+```ts
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AppImageReveal } from '@nawazaideveloperr/image-reveal-spinner';
 
-   ```bash
-   cd dist/app-image-reveal
-   ```
-
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule, AppImageReveal],
+  templateUrl: './home.component.html'
+})
+export class HomeComponent {}
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+### Template Usage
 
-```bash
-ng e2e
+```html
+<app-image-reveal
+  [imageUrl]="'https://picsum.photos/800/400'"
+  [fillColor]="'#898989'"
+  [startValue]="0"
+  [endValue]="100"
+  [duration]="3000"
+  [showProgress]="true"
+  [progressSize]="'13px'"
+  [progressColor]="'#ffffff'">
+</app-image-reveal>
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🚀 Best Practice (Staggered Animation in Angular)
+
+To create a better visual experience, you can assign **random durations** to each image.  
+This prevents all images from revealing at the same time and creates a natural staggered effect.
+
+---
+
+### Component Logic
+
+```ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  templateUrl: './home.component.html'
+})
+export class HomeComponent implements OnInit {
+
+  imageArry = [
+    { imageUrl: 'https://picsum.photos/400/200?1', duration: 0 },
+    { imageUrl: 'https://picsum.photos/400/200?2', duration: 0 },
+    { imageUrl: 'https://picsum.photos/400/200?3', duration: 0 },
+  ];
+
+  ngOnInit(): void {
+    for (let i in this.imageArry) {
+      this.imageArry[i].duration = this.getRandomNumber();
+    }
+  }
+
+  getRandomNumber() {
+    return Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000;
+  }
+}
+```
+
+---
+
+### Template
+
+```html
+<ng-container *ngFor="let item of imageArry">
+  <app-image-reveal 
+    [imageUrl]="item.imageUrl" 
+    [duration]="item.duration">
+  </app-image-reveal>
+</ng-container>
+```
+
+---
+
+### 💡 Why this works better
+
+- Each image gets a **different duration (3s–5s)**
+- Prevents all animations from running simultaneously  
+- Creates a **natural staggered reveal effect**
+- Improves UI/UX significantly  
+
+---
+
+## ⚙️ Inputs
+
+| Input | Type | Default | Description |
+|------|------|--------|------------|
+| `imageUrl` | string | '' | Image URL to reveal |
+| `fillColor` | string | '#898989' | Background color |
+| `startValue` | number | 0 | Starting progress value |
+| `endValue` | number | 100 | Ending progress value |
+| `duration` | number | 3000 | Animation duration (ms) |
+| `showProgress` | boolean | true | Show/hide progress indicator |
+| `progressSize` | string | '13px' | Progress text size |
+| `progressColor` | string | '#fff' | Progress text color |
+
+---
+
+## 🎨 Example
+
+```html
+<app-image-reveal
+  [imageUrl]="'https://picsum.photos/800/400'"
+  [duration]="2000"
+  [showProgress]="true">
+</app-image-reveal>
+```
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+## 🙌 Author
+
+Nawaz Aideveloper  
